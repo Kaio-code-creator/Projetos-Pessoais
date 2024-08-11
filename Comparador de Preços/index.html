@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Preços</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparador de Preços por Medida</h1>
+        <div class="input-group">
+            <label for="price1">Preço do Produto 1:</label>
+            <input type="number" id="price1" placeholder="Ex: 10.00">
+        </div>
+        <div class="input-group">
+            <label for="measure1">Medida do Produto 1 (em gramas, litros, etc):</label>
+            <input type="number" id="measure1" placeholder="Ex: 500">
+        </div>
+        <div class="input-group">
+            <label for="price2">Preço do Produto 2:</label>
+            <input type="number" id="price2" placeholder="Ex: 8.00">
+        </div>
+        <div class="input-group">
+            <label for="measure2">Medida do Produto 2 (em gramas, litros, etc):</label>
+            <input type="number" id="measure2" placeholder="Ex: 400">
+        </div>
+        <button onclick="comparePrices()">Comparar</button>
+        <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
