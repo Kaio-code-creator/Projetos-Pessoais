@@ -1,22 +1,3 @@
-function convertToGrams(measure, unit) {
-    switch (unit) {
-        case 'gramas':
-            return measure;
-        case 'quilogramas':
-            return measure * 1000;
-        case 'mililitros':
-            return measure;
-        case 'litros':
-            return measure * 1000;
-        default:
-            return measure;
-    }
-}
-
-function convertToReais(price, unit) {
-    return unit === 'centavos' ? price / 100 : price;
-}
-
 function comparePrices() {
     // Produto 1
     let price1 = parseFloat(document.getElementById('price1').value);
@@ -41,30 +22,18 @@ function comparePrices() {
     measure1 = convertToGrams(measure1, measureUnit1);
     measure2 = convertToGrams(measure2, measureUnit2);
 
-    const unitPrice1 = price1 / measure1;
-    const unitPrice2 = price2 / measure2;
+    // Cálculo de preço por unidade
+    const pricePerUnit1 = price1 / measure1;
+    const pricePerUnit2 = price2 / measure2;
 
     let resultText = '';
-
-    if (unitPrice1 < unitPrice2) {
-        resultText = 'O Produto 1 é mais barato proporcionalmente.';
-    } else if (unitPrice2 < unitPrice1) {
-        resultText = 'O Produto 2 é mais barato proporcionalmente.';
+    if (pricePerUnit1 < pricePerUnit2) {
+        resultText = 'O Produto 1 é mais barato por unidade.';
+    } else if (pricePerUnit1 > pricePerUnit2) {
+        resultText = 'O Produto 2 é mais barato por unidade.';
     } else {
-        resultText = 'Os dois produtos têm o mesmo preço proporcional.';
+        resultText = 'Os dois produtos têm o mesmo preço por unidade.';
     }
 
     document.getElementById('result').innerText = resultText;
-}
-
-function toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('dark-theme');
-    
-    const themeButton = document.getElementById('themeToggle');
-    if (body.classList.contains('dark-theme')) {
-        themeButton.innerText = 'Tema Claro';
-    } else {
-        themeButton.innerText = 'Tema Escuro';
-    }
 }
